@@ -63,4 +63,23 @@ public class Player : MonoBehaviour
         bullet.Project(this.transform.up);
     }
 
+    private void OnCollisionEnter2D(Collision2D collisions)
+    {
+        if (collisions.gameObject.tag == "Asteroid")
+        {
+            // Return the velocity and angular rotation to zero.
+            _rb.velocity = Vector3.zero;
+            _rb.angularVelocity = 0.0f;
+
+            // Turn off the game object
+            this.gameObject.SetActive(false); // Stops all components 
+
+            // Cannot invoke on game object that is turned off (GameManager)
+            FindObjectOfType<GameManager>().PlayerDied(); // Bad - Costly & Slow (Also bad to use inside of Update())
+
+        }
+    }
+
+    
+
 }
