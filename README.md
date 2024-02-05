@@ -1,2 +1,4 @@
 # Asteroids-Remake
-A remake of asteroids in C#. Added functionality to original tutorial. 
+A remake of asteroids in C#. 
+
+Provided code is for Unity.
